@@ -8,7 +8,7 @@ needle.post(
     "http://localhost:3000/add-book", 
     { 
         Bookname: "I hate me", 
-        ISBN: "978-0-7475-3269-9", 
+        ISBN: "123-123-213-23", 
         Author: "ME", 
         YearPublished: "2005" 
     },
@@ -17,10 +17,11 @@ needle.post(
     }
 );
 
-needle.get("http://localhost:3000/find-by-isbn-author?ISBN=23231&Author=ME", (req,res) => {
+needle.get("http://localhost:3000/find-by-isbn-author?ISBN=978-0-7475-3269-9&Author=J.K+Rowling", (req,res) => {
     console.log(res.body); 
 })
 
-needle.get("http://localhost:3000/find-by-author?Author=ME", (req,res) => {
+needle.get("http://localhost:3000/find-by-author?Author=J.K+Rowling", (req,res) => {
+  
     console.log(res.body); 
 })

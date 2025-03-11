@@ -23,9 +23,8 @@ app.post("/add-book", (req, res) => {
     if(book.length == 4){
         if(book[0] && book[1] != 0 && book[2] != 0 && book[3] != 0){
             appendFileSync("books.txt", book[0]+","+ book[1]+","+ book[2]+","+ book[3] + "\n", "utf-8");
-            res.send("success : true"); 
-            bookarray.push(book); 
             book.length = 0; 
+            res.send("success : true");     
         }else{res.send("success: false")}
     }else{res.send("success: false")}
    
@@ -44,14 +43,18 @@ app.get("/find-by-isbn-author", (req,res) => {
 })
 
 app.get("/find-by-author", (req,res) => {
+    matchesarray.length = 0; 
     var text = readFileSync("books.txt", "utf-8"); 
     var textarray = text.split("\n"); 
     for(let x = 0; x < textarray.length; x++){
         if(textarray[x].includes(req.query.Author)){
-            res.send(textarray[x]); 
+            matchesarray.push(textarray[x]); 
         }
     }
-    res.send("no matches"); 
+    if(matchesarray.length != 0){
+        res.send(matchesarray); 
+    }else{res.send("No matches"); }
+    
     
 })
 
