@@ -16,3 +16,11 @@ needle.post(
         console.log(res.body)
     }
 );
+
+needle.get("http://localhost:3000/find-by-isbn-author?ISBN=23231&Author=ME", (req,res) => {
+    console.log(res.body); 
+})
+
+needle.get("http://localhost:3000/find-by-author?Author=ME", (req,res) => {
+    console.log(res.body); 
+})
