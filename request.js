@@ -5,11 +5,12 @@ needle.get("http://localhost:3000/add-book", (err, res) => {
 });
 
 needle.post(
-    "http:localhost:3000/add-book", 
-    { Bookname: "HarryPotter Philostone",
-    ISBN: "978-0-7475-3269-9", 
-    Author: "JK Rowling", 
-    YearPublished: 1997
+    "http://localhost:3000/add-book", 
+    { 
+        Bookname: "I hate me", 
+        ISBN: "978-0-7475-3269-9", 
+        Author: "ME", 
+        YearPublished: "2005" 
     },
     (err, res) => {
         console.log(res.body)
