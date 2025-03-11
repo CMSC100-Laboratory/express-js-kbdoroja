@@ -18,10 +18,17 @@ needle.post(
 );
 
 needle.get("http://localhost:3000/find-by-isbn-author?ISBN=978-0-7475-3269-9&Author=J.K+Rowling", (req,res) => {
+    console.log("Result for ISBN with Author Search:"); 
     console.log(res.body); 
 })
 
 needle.get("http://localhost:3000/find-by-author?Author=J.K+Rowling", (req,res) => {
-  
-    console.log(res.body); 
+    console.log("Result for Author Search:"); 
+    if(res.body.length == 0){
+        console.log("No matches for that author"); 
+    }else{
+        for(let x = 0; x < res.body.length; x++){
+            console.log(res.body[x]); 
+        }
+    }
 })

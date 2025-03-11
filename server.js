@@ -38,7 +38,7 @@ app.get("/find-by-isbn-author", (req,res) => {
             res.send(textarray[x]); 
         }
     }
-    res.send("no matches"); 
+    res.send("No matches"); 
 
 })
 
@@ -51,9 +51,10 @@ app.get("/find-by-author", (req,res) => {
             matchesarray.push(textarray[x]); 
         }
     }
-    if(matchesarray.length != 0){
-        res.send(matchesarray); 
-    }else{res.send("No matches"); }
+    // if(matchesarray.length != 0){
+    //     res.send(matchesarray); 
+    // }else{res.send("No matches"); }
+    res.send(matchesarray); 
     
     
 })
